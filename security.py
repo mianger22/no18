@@ -1,6 +1,5 @@
 import keyboard
 import ctypes
-import time
 
 # Параметры Message box
 MB_OK = 0
@@ -26,10 +25,6 @@ def is_forbidden_word_typed(event):
                 keyboard.block_key('space')
                 keyboard.block_key('\n')
                 typed_buffer = ""
-
-                # # Обнуляем буфер при пробеле или переносе строки
-                # if ' ' in typed_buffer or '\n' in typed_buffer:
-                #     typed_buffer = ""
 
 keyboard.hook(is_forbidden_word_typed)
 
