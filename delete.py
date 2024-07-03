@@ -2,7 +2,7 @@ import keyboard
 import time
 import pyautogui
 
-banned_words = ["порн", "эроти", "секс", "мастурб", "дроч", "милф", "инцест", "мачеха", "зрел"]
+banned_words = ["порн", "эроти", "секс", "мастурб", "дроч", "милф", "инцест", "мачеха", "зрел", "еб"]
 typed_chars = []
 
 def on_press(event):
