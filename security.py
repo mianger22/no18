@@ -9,6 +9,7 @@ non_printable_keys = ['ctrl', 'alt', 'shift', 'enter', 'backspace', 'tab', 'caps
                       'left arrow', 'right arrow', 'up arrow', 'down arrow', 'left windows', 
                       'alt gr', 'right ctrl', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 
                       'f9', 'f10', 'f11', 'f12', 'print screen', 'space']
+forbidden_words = ["порн", "эроти", "секс", "мастурб", "дроч", "милф", "инцест", "мачеха", "зрел"]
 
 def on_key(event):
     global typed_buffer, enter_blocked
@@ -23,9 +24,10 @@ def on_key(event):
         print("Напечатано:", typed_buffer)
     
     # Блокируем Enter
-    if typed_buffer == "осел":
+    if typed_buffer in forbidden_words:
         if not enter_blocked:
             keyboard.block_key('enter')
+            keyboard.block_key('space')
             enter_blocked = True
             print("Enter заблокирован")
     
