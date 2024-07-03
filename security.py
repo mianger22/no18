@@ -13,7 +13,10 @@ forbidden_words = ["порн", "эроти", "секс", "мастурб", "др
 
 def on_key(event):
     global typed_buffer, enter_blocked
-    if event.event_type == "down" and event.name not in non_printable_keys:
+    if enter_blocked and event.name != 'backspace':
+        # Блокируем все нажатия клавиш, кроме 'backspace'
+        return False
+    elif event.event_type == "down" and event.name not in non_printable_keys:
         typed_buffer += event.name
         print("Напечатано:", typed_buffer)
     elif event.event_type == "down" and event.name == 'backspace':
@@ -27,7 +30,7 @@ def on_key(event):
     if typed_buffer in forbidden_words:
         if not enter_blocked:
             keyboard.block_key('enter')
-            keyboard.block_key('space')
+            # keyboard.block_key('space')
             enter_blocked = True
             print("Enter заблокирован")
     
