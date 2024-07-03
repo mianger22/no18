@@ -3,10 +3,12 @@ import keyboard
 typed_buffer = ""
 # Флаг для отслеживания состояния блокировки Enter
 enter_blocked = False  
-# Список известных служебных клавиш
+# Список служебных клавиш
 non_printable_keys = ['ctrl', 'alt', 'shift', 'enter', 'backspace', 'tab', 'caps lock', 
                       'esc', 'home', 'end', 'insert', 'delete', 'page up', 'page down', 
-                      'left arrow', 'right arrow', 'up arrow', 'down arrow']
+                      'left arrow', 'right arrow', 'up arrow', 'down arrow', 'left windows', 
+                      'alt gr', 'right ctrl', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 
+                      'f9', 'f10', 'f11', 'f12', 'print screen']
 
 def on_key(event):
     global typed_buffer, enter_blocked
