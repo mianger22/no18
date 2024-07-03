@@ -8,7 +8,7 @@ non_printable_keys = ['ctrl', 'alt', 'shift', 'enter', 'backspace', 'tab', 'caps
                       'esc', 'home', 'end', 'insert', 'delete', 'page up', 'page down', 
                       'left arrow', 'right arrow', 'up arrow', 'down arrow', 'left windows', 
                       'alt gr', 'right ctrl', 'f1', 'f2', 'f3', 'f4', 'f5', 'f6', 'f7', 'f8', 
-                      'f9', 'f10', 'f11', 'f12', 'print screen']
+                      'f9', 'f10', 'f11', 'f12', 'print screen', 'space']
 
 def on_key(event):
     global typed_buffer, enter_blocked
@@ -17,6 +17,9 @@ def on_key(event):
         print("Напечатано:", typed_buffer)
     elif event.event_type == "down" and event.name == 'backspace':
         typed_buffer = typed_buffer[:-1]
+        print("Напечатано:", typed_buffer)
+    elif event.event_type == "down" and event.name == 'space':
+        typed_buffer = ""
         print("Напечатано:", typed_buffer)
     
     # Блокируем Enter
